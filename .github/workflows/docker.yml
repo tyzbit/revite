@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - "master"
+            - "selfhosted"
         tags:
             - "*"
         paths-ignore:
@@ -83,12 +84,12 @@ jobs:
               id: meta
               uses: docker/metadata-action@v3
               with:
-                  images: revoltchat/client, ghcr.io/revoltchat/client
-            - name: Login to DockerHub
-              uses: docker/login-action@v1
-              with:
-                  username: ${{ secrets.DOCKERHUB_USERNAME }}
-                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+                  images: ghcr.io/tyzbit/revite
+            # - name: Login to DockerHub
+            #   uses: docker/login-action@v1
+            #   with:
+            #       username: ${{ secrets.DOCKERHUB_USERNAME }}
+            #       password: ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Login to Github Container Registry
               uses: docker/login-action@v1
               with:
